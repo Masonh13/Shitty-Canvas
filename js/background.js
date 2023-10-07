@@ -145,7 +145,7 @@ chrome.runtime.onInstalled.addListener(function () {
     updateNewCSS();
 });
 
-chrome.runtime.setUninstallURL("https://diditupe.dev/bettercanvas/goodbye");
+chrome.runtime.setUninstallURL("https://youtu.be/nLTgWdXrx3U?si=l_EEDOEWcbwEvGFj&t=160");
 
 function newInstallCSS() {
     fetch(chrome.runtime.getURL('js/darkcss.json'))
