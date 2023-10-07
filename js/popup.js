@@ -204,7 +204,7 @@ function displayAdvancedCards() {
                 let card_2 = storage["custom_cards_2"][key];
                 let container = makeElement("div", "custom-card", document.querySelector(".advanced-cards"));
                 container.classList.add("option-container");
-                container.innerHTML = '<p class="custom-card-title"></p><div class="custom-card-inputs"><div class="custom-card-left"><div class="custom-card-image"><span class="custom-key">Image</span></div><div class="custom-card-name"><span class="custom-key">Name</span></div><div class="custom-card-title-click"><span class="custom-key">On Title Click</span></div><div class="custom-card-hide"><p class="custom-key">Hide</p></div></div><div class="custom-links-container"><p class="custom-key">Links</p><div class="custom-links"></div></div></div>';
+                container.innerHTML = '<p class="custom-card-title"></p><div class="custom-card-inputs"><div class="custom-card-left"><div class="custom-card-image"><span class="custom-key">Image</span></div><div class="custom-card-name"><span class="custom-key">Name</span></div><div class="custom-card-title-click"><span class="custom-key">On Title Click</span></div><div class="custom-card-course-id"><span class="custom-key">Course ID</span></div><div class="custom-card-hide"><p class="custom-key">Hide</p></div></div><div class="custom-links-container"><p class="custom-key">Links</p><div class="custom-links"></div></div></div>';
                 let imgInput = makeElement("input", "card-input", container.querySelector(".custom-card-image"));
                 imgInput.placeholder = "Image url";
                 let nameInput = makeElement("input", "card-input", container.querySelector(".custom-card-name"));
@@ -213,14 +213,18 @@ function displayAdvancedCards() {
                 hideInput.type = "checkbox";
                 let titleClickInput = makeElement("input", "card-input", container.querySelector(".custom-card-title-click"))
                 titleClickInput.placeholder = "On title click...";
+                let courseIDInput = makeElement("input", "card-input", container.querySelector(".custom-card-course-id"))
+                courseIDInput.placeholder = "Replacement course ID";
                 imgInput.value = card.img;
                 nameInput.value = card.name;
                 hideInput.checked = card.hidden;
                 titleClickInput.value = card.title_click;
+                courseIDInput.value = card.course_id;
                 imgInput.addEventListener("change", function (e) { updateCards(key, { "img": e.target.value }) });
                 nameInput.addEventListener("change", function (e) { updateCards(key, { "name": e.target.value }) });
                 hideInput.addEventListener("change", function (e) { updateCards(key, { "hidden": e.target.checked }) });
                 titleClickInput.addEventListener("change", function (e) { updateCards(key, { "title_click": e.target.value }) });
+                courseIDInput.addEventListener("change", function (e) { updateCards(key, { "course_id": e.target.value }) });
                 container.querySelector(".custom-card-title").textContent = card.default;
 
                 if (card_2.links["custom"]) return;

@@ -1,63 +1,63 @@
 {
     "dark_mode": {
-        "message": "Dark mode"
+        "message": "Dark Mode"
     },
     "automatic_dark_mode": {
-        "message": "Automatic dark mode"
+        "message": "Automatic Dark Mode"
     },
     "auto_start_time": {
-        "message": "Start time"
+        "message": "Start Time"
     },
     "auto_end_time": {
-        "message": "End time"
+        "message": "End Time"
     },
     "edit_dark_mode": {
-        "message": "Edit dark mode"
+        "message": "Edit Dark Mode"
     },
     "enter_url": {
-        "message": "Enter your Canvas url here:"
+        "message": "Enter your Canvas URL here:"
     },
     "card_grades": {
         "message": "Card grades"
     },
     "gradient_cards": {
-        "message": "Gradient cards"
+        "message": "Gradient Cards"
     },
     "condensed_cards": {
-        "message": "Condensed cards"
+        "message": "Condensed Cards"
     },
     "disable_color": {
-        "message": "Disable color overlay"
+        "message": "Disable Color Overlay"
     },
     "card_assignments": {
-        "message": "Card assignments"
+        "message": "Card Assignments"
     },
     "card_customization": {
-        "message": "Card customization"
+        "message": "Course Customization"
     },
     "custom_font": {
-        "message": "Custom font"
+        "message": "Custom Font"
     },
     "useddmm": {
-        "message": "Use dd/mm"
+        "message": "Use Day/Month"
     },
     "better_todo": {
-        "message": "Better todo list"
+        "message": "Better Todo List"
     },
     "max_items": {
-        "message": "Max items: "
+        "message": "Max Items: "
     },
     "hover_preview": {
-        "message": "Hover to preview details"
+        "message": "Hover to Preview Details"
     },
     "hide_completed": {
-        "message": "Hide completed"
+        "message": "Hide Completed"
     },
     "24hrformat": {
-        "message": "Use 24 hr format"
+        "message": "Use 24-hour format"
     },
     "dashboard_notes": {
-        "message": "Dashboard notes"
+        "message": "Dashboard Notes"
     },
     "gpa_calculator": {
         "message": "GPA calculator"
@@ -66,7 +66,7 @@
         "message": "GPA settings"
     },
     "grade_hover": {
-        "message": "Show only on hover"
+        "message": "Show on Hover"
     },
     "due": {
         "message": "Due"
@@ -78,10 +78,10 @@
         "message": "Back"
     },
     "more_options": {
-        "message": "More options"
+        "message": "Extras"
     },
     "manual_customization": {
-        "message": "Manual customization"
+        "message": "Manual Color Scheme"
     },
     "background_colors": {
         "message": "Background"
@@ -90,7 +90,7 @@
         "message": "Text"
     },
     "full_width": {
-        "message": "Dashboard full width"
+        "message": "Full Dashboard Width"
     },
     "report_issue": {
         "message": "Report an issue"

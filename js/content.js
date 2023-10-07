@@ -157,6 +157,7 @@ function startExtension() {
             toggleAutoDarkMode();
             getApiData();
             checkDashboardReady();
+            fuckUpSidebar();
             loadCustomFont();
             //changeAssignmentDueDate();
         });
@@ -267,7 +268,7 @@ async function getCards(api = null) {
                 let id = card.id;
                 if (!storage["custom_cards"] || !storage["custom_cards"][id]) {
                     newCards = true;
-                    cards[id] = { "default": card.longName, "name": "", "img": "", "hidden": false, "title_click": "", "weight": "regular", "credits": 1 };
+                    cards[id] = { "default": card.longName, "name": "", "img": "", "hidden": false, "title_click": "", "course_id": "", "weight": "regular", "credits": 1 };
                     console.log("NEW CARDS FOUND!");
                 }
                 if (!storage["custom_cards_2"] || !storage["custom_cards_2"][id]) {
@@ -992,6 +993,9 @@ function customizeCards(c = null) {
                 if (cardOptions.name !== "") {
                     card.querySelector(".ic-DashboardCard__header-title > span").textContent = cardOptions.name;
                 }
+                if (cardOptions.course_id !== "") {
+                    card.querySelector(".ic-DashboardCard__header-subtitle").innerHTML = cardOptions.course_id;
+                }
                 if (cardOptions.title_click !== "" && (card.querySelector(".ic-DashboardCard__link").href.split("courses/")[1]).split("/").length === 1) {
                     card.querySelector(".ic-DashboardCard__link").href += `/${cardOptions.title_click}`;
                 }
@@ -1027,6 +1031,37 @@ function customizeCards(c = null) {
     } catch (e) {
         logError(e);
     }
+}
+
+function fuckUpSidebar(cock = null)
+{
+    document.addEventListener("DOMContentLoaded", _ =>
+    {
+        document.getElementById("global_nav_courses_link").addEventListener("click", e =>
+        {
+            handle = setInterval(() =>
+            {
+                let found_ids = Array.from(document.querySelectorAll(".fbyHH_bSMN").values()).map(el => el.href ? (new URL(el.href)).pathname.split("/")[2] : "-1")
+                found_ids = found_ids.filter(id => id !== undefined);
+                if (Object.keys(options["custom_cards"]).filter(id => !found_ids.includes(id)).length === 0)
+                {
+                    clearInterval(handle);
+                    let sidebar_courses = document.querySelectorAll(".fbyHH_bSMN");
+                    for (let course of sidebar_courses)
+                    {
+                        let url = new URL(course.href);
+                        if (url.pathname.split("/").length < 3)
+                            continue;
+                        let cardOptions = options["custom_cards"][url.pathname.split("/")[2]]
+                        if (cardOptions.name !== "")
+                            course.innerHTML = cardOptions.name;
+                        if (cardOptions.title_click !== "")
+                            course.href += `/${cardOptions.title_click}`;
+                    }
+                }
+            }, 1);
+        });
+    })
 }
 
 function getCustomLinkImage(path) {
