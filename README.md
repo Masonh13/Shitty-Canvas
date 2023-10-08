@@ -6,7 +6,7 @@ Make make lemenade
 I can generate a README file for your GitHub extension that makes Canvas worse. Here is a possible template that you can use or modify as you wish.
 
 CanvasWorse
-CanvasWorse is a browser extension that makes Canvas, the learning management system, worse in various ways. It is intended to be a humorous and harmless prank, not a malicious attack. Use it at your own risk and discretion.
+CanvasWorse is a browser extension that makes Canvas, the learning management system, worse in various ways. It is intended to be a humorous and harmless prank, not a malicious attack (no virus I swaree). Use it at your own risk and discretion.
 
 Features
 CanvasWorse can do the following things:
