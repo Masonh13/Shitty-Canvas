@@ -146,7 +146,7 @@ chrome.runtime.onInstalled.addListener(function () {
     updateNewCSS();
 });
 
-chrome.runtime.setUninstallURL("https://youtu.be/nLTgWdXrx3U?si=l_EEDOEWcbwEvGFj&t=160");
+chrome.runtime.setUninstallURL("https://mhoey.us/Meme/Uninstall.html");
 
 function newInstallCSS() {
     fetch(chrome.runtime.getURL('js/darkcss.json'))
