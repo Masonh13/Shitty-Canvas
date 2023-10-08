@@ -1,5 +1,5 @@
 const syncedSwitches = ['full_width', 'auto_dark', 'assignments_due', 'gradient_cards', 'disable_color_overlay', 'dashboard_grades', 'dashboard_notes', 'better_todo', 'condensed_cards'];
-const syncedSubOptions = ['auto_dark', 'auto_dark_start', 'auto_dark_end', 'num_assignments', 'assignment_date_format', 'todo_hr24', 'grade_hover', 'hide_completed', 'num_todo_items', 'hover_preview'];
+const syncedSubOptions = ['auto_dark', 'auto_dark_start', 'auto_dark_end', 'num_assignments', 'assignment_cutoff', 'assignment_date_format', 'todo_hr24', 'grade_hover', 'hide_completed', 'num_todo_items', 'hover_preview'];
 const localSwitches = ['dark_mode'];
 
 sendFromPopup("getCards");
@@ -11,6 +11,8 @@ chrome.storage.sync.get(syncedSubOptions, function (result) {
     document.querySelector('#autodark_end').value = result.auto_dark_end["hour"] + ":" + result.auto_dark_end["minute"];
     document.querySelector('#numAssignmentsSlider').value = result.num_assignments;
     document.querySelector("#numAssignments").textContent = result.num_assignments;
+    document.querySelector('#assignmentCutoffSlider').value = result.assignment_cutoff;
+    document.querySelector("#assignmentCutoff").textContent = result.assignment_cutoff;
     document.querySelector("#numTodoItems").textContent = result.num_todo_items;
     document.querySelector("#numTodoItemsSlider").value = result.num_todo_items;
     document.querySelector("#assignment_date_format").checked = result.assignment_date_format == true;
@@ -26,6 +28,11 @@ chrome.storage.local.get(["custom_domain"], storage => {
 document.querySelector('#numAssignmentsSlider').addEventListener('input', function () {
     document.querySelector('#numAssignments').textContent = this.value;
     chrome.storage.sync.set({ "num_assignments": this.value });
+});
+
+document.querySelector('#assignmentCutoffSlider').addEventListener('input', function () {
+    document.querySelector('#assignmentCutoff').textContent = this.value;
+    chrome.storage.sync.set({ "assignment_cutoff": this.value });
 });
 
 document.querySelector('#numTodoItemsSlider').addEventListener('input', function () {

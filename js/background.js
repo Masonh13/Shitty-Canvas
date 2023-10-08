@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(function () {
-    const syncedOptions = ['full_width', 'new_install', 'hover_preview', 'num_todo_items', 'assignments_due', 'gpa_calc', 'gpa_calc_bounds', 'gradient_cards', 'disable_color_overlay', 'auto_dark', 'auto_dark_start', 'auto_dark_end', 'num_assignments', 'assignments_done', 'assignment_date_format', 'dashboard_notes', 'dashboard_notes_text', 'better_todo', 'todo_hr24', 'condensed_cards', 'custom_cards', 'custom_cards_2', 'custom_assignments', 'custom_assignments_overflow', 'grade_hover', 'hide_completed', 'custom_font'];
+    const syncedOptions = ['full_width', 'new_install', 'hover_preview', 'num_todo_items', 'assignments_due', 'gpa_calc', 'gpa_calc_bounds', 'gradient_cards', 'disable_color_overlay', 'auto_dark', 'auto_dark_start', 'auto_dark_end', 'num_assignments', 'assignment_cutoff', 'assignments_done', 'assignment_date_format', 'dashboard_notes', 'dashboard_notes_text', 'better_todo', 'todo_hr24', 'condensed_cards', 'custom_cards', 'custom_cards_2', 'custom_assignments', 'custom_assignments_overflow', 'grade_hover', 'hide_completed', 'custom_font'];
     const localOptions = ['errors', 'dark_mode', 'dark_css', 'custom_domain'];
     let default_options = {
         "new_install": true,
@@ -12,6 +12,7 @@ chrome.runtime.onInstalled.addListener(function () {
         "auto_dark_start": { "hour": "20", "minute": "00" },
         "auto_dark_end": { "hour": "08", "minute": "00" },
         "num_assignments": 5,
+        "assignment_cutoff": 0,
         "custom_domain": [""],
         "assignments_done": [],
         "dashboard_grades": false,
