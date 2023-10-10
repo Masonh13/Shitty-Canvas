@@ -17,6 +17,9 @@
     "enter_url": {
         "message": "Enter your Canvas URL here:"
     },
+    "enter_url2": {
+        "message": "Enter your Secondary Canvas URL here:"
+    },
     "card_grades": {
         "message": "Card Grades"
     },

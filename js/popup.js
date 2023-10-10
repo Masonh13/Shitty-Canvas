@@ -24,6 +24,9 @@ chrome.storage.sync.get(syncedSubOptions, function (result) {
 chrome.storage.local.get(["custom_domain"], storage => {
     document.querySelector("#customDomain").value = storage.custom_domain ? storage.custom_domain : "";
 });
+chrome.storage.local.get(["custom_domain2"], storage => {
+    document.querySelector("#customDomain2").value = storage.custom_domain2 ? storage.custom_domain2 : "";
+});
 
 document.querySelector('#numAssignmentsSlider').addEventListener('input', function () {
     document.querySelector('#numAssignments').textContent = this.value;
@@ -56,7 +59,18 @@ document.querySelector('#customDomain').addEventListener('input', function () {
         }
         domains[index] = val;
     });
-    chrome.storage.local.set({ custom_domain: domains });
+    chrome.storage.local.set({ custom_domain: domains2 });
+});
+document.querySelector('#customDomain2').addEventListener('input', function () {
+    let domains2 = this.value.split(",");
+    domains2.forEach((domain, index) => {
+        let val = domain.replace(" ", "");
+        if (val.charAt(val.length - 1) === "/") {
+            val = val.slice(0, -1);
+        }
+        domains2[index] = val;
+    });
+    chrome.storage.local.set({ custom_domain2: domains2 });
 });
 
 document.querySelector("#advanced-settings").addEventListener("click", function () {
