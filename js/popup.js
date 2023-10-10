@@ -493,3 +493,12 @@ function sendFromPopup(message) {
     } catch (e) {
     }
 }
+document.getElementById('numAssignmentsSlider').addEventListener('input', function (e) {
+    var value = e.target.value;
+    document.getElementById('numAssignments').textContent = value == 0 ? 'Unlimited' : value;
+});
+
+document.getElementById('assignmentCutoffSlider').addEventListener('input', function (e) {
+    var value = e.target.value;
+    document.getElementById('assignmentCutoff').textContent = value == 0 ? 'Unlimited' : value;
+});
