@@ -906,7 +906,7 @@ function loadCardAssignments(c = null) {
                         cardContainer.textContent = "";
                         cardContainer.parentElement.style.display = "block";
                         items.forEach(assignment => {
-                            if (course_id !== assignment.course_id || count >= options.num_assignments || now > new Date(assignment.plannable_date) || (options.assignment_cutoff != 0 && ((new Date(assignment.plannable_date)).getTime() - now.getTime() > (options.assignment_cutoff * 8.64e7))) || (assignment.submissions.submitted === true && options.hide_completed === true)) return;
+                            if (course_id !== assignment.course_id || (options.num_assignments != 0 && count >= options.num_assignments) || now > new Date(assignment.plannable_date) || (options.assignment_cutoff != 0 && ((new Date(assignment.plannable_date)).getTime() - now.getTime() > (options.assignment_cutoff * 8.64e7))) || (assignment.submissions.submitted === true && options.hide_completed === true)) return;
                             if (assignment.plannable_type === "assignment" || assignment.plannable_type === "quiz" || assignment.plannable_type === "discussion_topic") {
                                 let assignmentContainer = makeElement("div", "bettercanvas-assignment-container", cardContainer);
                                 let assignmentName = makeElement("a", "bettercanvas-assignment-link", assignmentContainer, assignment.plannable.title)
@@ -1374,12 +1374,12 @@ function cleanCustomAssignments() {
 }
 
 function isDomainCanvasPage() {
-    chrome.storage.local.get(['custom_domain', 'dark_css', 'dark_mode'], result => {
+    chrome.storage.local.get(['custom_domain','custom_domain2','dark_css', 'dark_mode'], result => {
         options = result;
-        if (result.custom_domain.length && result.custom_domain[0] !== "") {
+        if (result.custom_domain.length && result.custom_domain[0] !== ""||result.custom_domain2.length && result.custom_domain2[0] !== "") {
             try {
-                for (let i = 0; i < result.custom_domain.length; i++) {
-                    if (domain.includes(result.custom_domain[i])) {
+                for (let i = 0; i < result.custom_domain.length || i < result.custom_domain2.length; i++) {
+                    if (domain.includes(result.custom_domain[i])||domain.includes(result.custom_domain2[i])) {
                         startExtension();
                         return;
                     }

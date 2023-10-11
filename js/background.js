@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function () {
     const syncedOptions = ['full_width', 'new_install', 'hover_preview', 'num_todo_items', 'assignments_due', 'gpa_calc', 'gpa_calc_bounds', 'gradient_cards', 'disable_color_overlay', 'auto_dark', 'auto_dark_start', 'auto_dark_end', 'num_assignments', 'assignment_cutoff', 'assignments_done', 'assignment_date_format', 'dashboard_notes', 'dashboard_notes_text', 'better_todo', 'todo_hr24', 'condensed_cards', 'custom_cards', 'custom_cards_2', 'custom_assignments', 'custom_assignments_overflow', 'grade_hover', 'hide_completed', 'custom_font'];
-    const localOptions = ['errors', 'dark_mode', 'dark_css', 'custom_domain'];
+    const localOptions = ['errors', 'dark_mode', 'dark_css', 'custom_domain','custom_domain2'];
     let default_options = {
         "new_install": true,
         "assignments_due": true,
@@ -14,6 +14,7 @@ chrome.runtime.onInstalled.addListener(function () {
         "num_assignments": 5,
         "assignment_cutoff": 0,
         "custom_domain": [""],
+        "custom_domain2": [""],
         "assignments_done": [],
         "dashboard_grades": false,
         "assignment_date_format": false,
@@ -133,6 +134,7 @@ chrome.runtime.onInstalled.addListener(function () {
                 switch (option) {
                     case ("errors"): newOptions.errors = default_options["errors"]; break;
                     case ("custom_domain"): newOptions.custom_domain = default_options["custom_domain"]; break;
+                    case ("custom_domain2"): newOptions.custom_domain2 = default_options["custom_domain2"]; break;                    
                     case ("dark_mode"): newOptions.dark_mode = default_options["dark_mode"]; break;
                     case ("dark_css"): newInstallCSS(); break;
                 }
