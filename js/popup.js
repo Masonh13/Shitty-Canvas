@@ -10,9 +10,9 @@ chrome.storage.sync.get(syncedSubOptions, function (result) {
     document.querySelector('#autodark_start').value = result.auto_dark_start["hour"] + ":" + result.auto_dark_start["minute"];
     document.querySelector('#autodark_end').value = result.auto_dark_end["hour"] + ":" + result.auto_dark_end["minute"];
     document.querySelector('#numAssignmentsSlider').value = result.num_assignments;
-    document.querySelector("#numAssignments").textContent = result.num_assignments;
+    document.querySelector("#numAssignments").textContent = result.num_assignments != 0 ? result.num_assignments : "Unlimited";
     document.querySelector('#assignmentCutoffSlider').value = result.assignment_cutoff;
-    document.querySelector("#assignmentCutoff").textContent = result.assignment_cutoff;
+    document.querySelector("#assignmentCutoff").textContent = result.assignment_cutoff != 0 ? result.assignment_cutoff : "Unlimited";
     document.querySelector("#numTodoItems").textContent = result.num_todo_items;
     document.querySelector("#numTodoItemsSlider").value = result.num_todo_items;
     document.querySelector("#assignment_date_format").checked = result.assignment_date_format == true;
@@ -493,3 +493,12 @@ function sendFromPopup(message) {
     } catch (e) {
     }
 }
+document.getElementById('numAssignmentsSlider').addEventListener('input', function (e) {
+    var value = e.target.value;
+    document.getElementById('numAssignments').textContent = value == 0 ? 'Unlimited' : value;
+});
+
+document.getElementById('assignmentCutoffSlider').addEventListener('input', function (e) {
+    var value = e.target.value;
+    document.getElementById('assignmentCutoff').textContent = value == 0 ? 'Unlimited' : value;
+});
